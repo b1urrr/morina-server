@@ -3,11 +3,12 @@ import mongoose from "mongoose";
 const productSchema = mongoose.Schema({
   name: String,
   price: Number,
-  image: String,
-  company: String,
+  stock: Number,
+  images: [String],
+  colors: [String],
   description: String,
   category: String,
-  shipping: Boolean,
+  featured: Boolean,
 });
 
 const AllProducts = mongoose.model("AllProducts", productSchema);

@@ -3,6 +3,9 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import productRoutes from './routes/products.js';
+import * as dotenv from 'dotenv';
+
+dotenv.config()
 
 const app = express();
 
@@ -12,8 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', productRoutes)
 
-const CONNECTION_URL =
-  "mongodb+srv://kristiangogow:123123123@morina.nqt0paj.mongodb.net/";
+const CONNECTION_URL = process.env.MONGO_DB
 const PORT = process.env.PORT || 5000;
 
 mongoose
